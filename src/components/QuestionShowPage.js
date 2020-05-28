@@ -1,7 +1,8 @@
 import React from "react";
 
 import { QuestionDetails } from "./QuestionDetails";
-import { AnswerDetails } from "./AnswerDetails";
+import { AnswerList } from "./AnswerList";
+import oneQuestionData from "../oneQuestionData";
 
 // QuestionShowPage component
 export const QuestionShowPage = () => {
@@ -14,11 +15,7 @@ export const QuestionShowPage = () => {
         view_count={100}
         created_at={new Date()}
       />
-      <AnswerDetails
-        body="Red."
-        author={{ full_name: "Ulises Wisozk" }}
-        created_at={new Date().toLocaleDateString()}
-      />
+      <AnswerList answers={oneQuestionData.answers} />
     </main>
   );
 };
