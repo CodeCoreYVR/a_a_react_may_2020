@@ -1,6 +1,7 @@
 import React from "react";
 // QuestionDetails component
 export const QuestionDetails = (props) => {
+  debugger;
   const { title, body, author, view_count, created_at } = props;
   return (
     <div className="QuestionDetails">
@@ -18,4 +19,3 @@ export const QuestionDetails = (props) => {
     </div>
   );
 };
-
