@@ -23,12 +23,24 @@ const QuestionDetails = () => {
   );
 };
 
+const AnswerDetails = () => {
+  return (
+    <div>
+      <p>
+        Red. <br />
+        By Ulises Wisozk
+      </p>
+      <p>Answered 2 days ago</p>
+    </div>
+  );
+};
+
 // In JSX, self-closing tags must be closed. <img> doesn't work, you
 // must write <img /> instead.
 
 ReactDOM.render(
   <React.StrictMode>
-    <QuestionDetails />
+    <AnswerDetails />
   </React.StrictMode>,
   document.getElementById("root")
 );
