@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 // Components whose names does not begin with a capital letter,
 // will be interpreted as a plain HTML tag.
 
+// QuestionDetails component
 const QuestionDetails = () => {
   return (
     <div>
@@ -23,6 +24,7 @@ const QuestionDetails = () => {
   );
 };
 
+// AnswerDetails component
 const AnswerDetails = () => {
   return (
     <div>
@@ -35,12 +37,21 @@ const AnswerDetails = () => {
   );
 };
 
+// QuestionShowPage component
+const QuestionShowPage = () => {
+  return (
+    <main>
+      <QuestionDetails />
+      <AnswerDetails />
+    </main>
+  );
+};
 // In JSX, self-closing tags must be closed. <img> doesn't work, you
 // must write <img /> instead.
 
 ReactDOM.render(
   <React.StrictMode>
-    <AnswerDetails />
+    <QuestionShowPage />
   </React.StrictMode>,
   document.getElementById("root")
 );
