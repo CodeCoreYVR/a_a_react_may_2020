@@ -9,16 +9,20 @@ import * as serviceWorker from "./serviceWorker";
 // will be interpreted as a plain HTML tag.
 
 // QuestionDetails component
-const QuestionDetails = () => {
+const QuestionDetails = (props) => {
+  const { title, body, author, view_count, created_at } = props;
   return (
     <div>
-      <h2>What is your favourite color?</h2>
+      <h2>{title}</h2>
       <p>
-        Red, green, blue, magenta, etc. <br />
-        By Michael Owen
+        {body}
+        <br />
+        {author.full_name}
       </p>
       <p>
-        <small>Seen 10 times - Created 10 days ago</small>
+        <small>
+          Seen {view_count} times - Created {created_at.toLocaleString()}
+        </small>
       </p>
     </div>
   );
@@ -41,7 +45,13 @@ const AnswerDetails = () => {
 const QuestionShowPage = () => {
   return (
     <main>
-      <QuestionDetails />
+      <QuestionDetails
+        title="What is your favourite color?"
+        body="Red, green, blue, magenta, etc."
+        author={{ full_name: "Michael Owen" }}
+        view_count={100}
+        created_at={new Date()}
+      />
       <AnswerDetails />
     </main>
   );
