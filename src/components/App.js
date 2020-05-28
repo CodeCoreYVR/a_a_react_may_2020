@@ -7,7 +7,7 @@ import { QuestionShowPage } from "./QuestionShowPage";
 // This is the one that should be rendered by `ReactDOM.render()`
 export const App = () => {
   return (
-    <div>
+    <div className="App">
       <QuestionShowPage />
     </div>
   );

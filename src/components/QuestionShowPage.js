@@ -6,7 +6,7 @@ import { AnswerDetails } from "./AnswerDetails";
 // QuestionShowPage component
 export const QuestionShowPage = () => {
   return (
-    <main>
+    <main className="QuestionShowPage">
       <QuestionDetails
         title="What is your favourite color?"
         body="Red, green, blue, magenta, etc."
