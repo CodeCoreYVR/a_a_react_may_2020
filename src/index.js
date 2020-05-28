@@ -29,14 +29,14 @@ const QuestionDetails = (props) => {
 };
 
 // AnswerDetails component
-const AnswerDetails = () => {
+const AnswerDetails = (props) => {
   return (
     <div>
       <p>
-        Red. <br />
-        By Ulises Wisozk
+        {props.body} <br />
+        By {props.author.full_name}
       </p>
-      <p>Answered 2 days ago</p>
+      <p>Answered {props.created_at}</p>
     </div>
   );
 };
@@ -52,7 +52,11 @@ const QuestionShowPage = () => {
         view_count={100}
         created_at={new Date()}
       />
-      <AnswerDetails />
+      <AnswerDetails
+        body="Red."
+        author={{ full_name: "Ulises Wisozk" }}
+        created_at={new Date().toLocaleDateString()}
+      />
     </main>
   );
 };
