@@ -3,7 +3,7 @@ import React from "react";
 export const QuestionDetails = (props) => {
   const { title, body, author, view_count, created_at } = props;
   return (
-    <div>
+    <div className="QuestionDetails">
       <h2>{title}</h2>
       <p>
         {body}

@@ -1,8 +1,9 @@
 import React from "react";
+
 // AnswerDetails component
 export const AnswerDetails = (props) => {
   return (
-    <div>
+    <div className="AnswerDetails">
       <p>
         {props.body} <br />
         <small
