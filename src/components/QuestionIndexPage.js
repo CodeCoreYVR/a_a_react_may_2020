@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { NewQuestionForm } from "./NewQuestionForm";
-import questions from "../questionsData";
+import { Question } from "../api/question";
 
 export class QuestionIndexPage extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export class QuestionIndexPage extends Component {
       // This copies the questions array into
       // a new array that is stored in the state
       // questions: questions.map(question => question)
-      questions: [...questions],
+      questions: [],
     };
     // this.state is an object
     // it has a single property, questions
@@ -19,6 +19,13 @@ export class QuestionIndexPage extends Component {
 
     this.createQuestion = this.createQuestion.bind(this);
   }
+
+  componentDidMount() {
+    Question.all().then((questions) => {
+      this.setState({ questions: questions });
+    });
+  }
+  
   deleteQuestion(id) {
     // console.log("Question Id: ", id);
     // To change 'state', you must ALWAYS use 'this.setState(...)'
