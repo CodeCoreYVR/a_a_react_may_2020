@@ -4,9 +4,9 @@ import { AnswerDetails } from "./AnswerDetails";
 
 export const AnswerList = (props) => {
   return (
-    <ul>
+    <ul className="ui list">
       {props.answers.map((answer) => (
-        <li key={answer.id}>
+        <div key={answer.id} className="ui raised clearing segment">
           <AnswerDetails
             {...answer}
             // body={answer.body}
@@ -14,7 +14,7 @@ export const AnswerList = (props) => {
             // created_at={answer.created_at}
             onDeleteClick={props.onAnswerDeleteClick}
           />
-        </li>
+        </div>
       ))}
     </ul>
   );

@@ -8,7 +8,7 @@ import { QuestionIndexPage } from "./QuestionIndexPage";
 // This is the one that should be rendered by `ReactDOM.render()`
 export const App = () => {
   return (
-    <div className="App">
+    <div className="ui container App">
       <QuestionShowPage />
       <hr />
       <QuestionIndexPage />

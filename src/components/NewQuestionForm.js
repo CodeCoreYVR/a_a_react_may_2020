@@ -15,19 +15,26 @@ export const NewQuestionForm = (props) => {
     currentTarget.reset();
   };
   return (
-    <form className="NewQuestionForm" onSubmit={handleSubmit}>
-      <div>
+    <form
+      className="ui large form clearing segment NewQuestionForm"
+      onSubmit={handleSubmit}
+    >
+      <div className="field">
         <label htmlFor="title">Title</label>
         <br />
         <input type="text" name="title" id="title" />
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="body">Body</label>
         <br />
         <textarea type="text" name="body" id="body" />
       </div>
       <div>
-        <input type="submit" value="Create Question" />
+        <input
+          type="submit"
+          value="Create Question"
+          className="ui right floated large orange button"
+        />
       </div>
     </form>
   );

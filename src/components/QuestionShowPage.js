@@ -48,22 +48,32 @@ export class QuestionShowPage extends Component {
     }
     return (
       <main className="QuestionShowPage">
-        <QuestionDetails
-          {...this.state.question}
-          // Instead of writing down all the properties
-          // of question separately like below we can
-          // just type the above line
-          //   title={this.state.question.title}
-          //   body={this.state.question.body}
-          //   author={this.state.question.author}
-          //   view_count={this.state.question.view_count}
-          //   created_at={this.state.question.created_at}
-        />
-        <button onClick={() => this.deleteQuestion()}>Delete</button>
-        <AnswerList
-          answers={this.state.question.answers}
-          onAnswerDeleteClick={(id) => this.deleteAnswer(id)}
-        />
+        <div className="ui teal clearing segment ">
+          <QuestionDetails
+            {...this.state.question}
+            // Instead of writing down all the properties
+            // of question separately like below we can
+            // just type the above line
+            //   title={this.state.question.title}
+            //   body={this.state.question.body}
+            //   author={this.state.question.author}
+            //   view_count={this.state.question.view_count}
+            //   created_at={this.state.question.created_at}
+          />
+          <button
+            onClick={() => this.deleteQuestion()}
+            className="ui right floated huge red button"
+          >
+            Delete
+          </button>
+        </div>
+        <h2 className="ui horizontal divider header">Answers</h2>
+        <div className="ui segment">
+          <AnswerList
+            answers={this.state.question.answers}
+            onAnswerDeleteClick={(id) => this.deleteAnswer(id)}
+          />
+        </div>
       </main>
     );
   }

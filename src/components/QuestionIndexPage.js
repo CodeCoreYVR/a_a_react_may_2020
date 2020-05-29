@@ -62,20 +62,20 @@ export class QuestionIndexPage extends Component {
     return (
       <main className="QuestionIndexPage Page">
         <NewQuestionForm onSubmit={this.createQuestion} />
-        <h2>Questions</h2>
-        <ul
-          style={{
-            listStyle: "none",
-            paddingLeft: 0,
-          }}
-        >
+        <h2 className="ui horizontal divider header">Questions</h2>
+        <ul className="ui list">
           {this.state.questions.map((question) => (
-            <li key={question.id} style={{ padding: "0.2em" }}>
-              <a href="">{question.title}</a>
-              <button onClick={() => this.deleteQuestion(question.id)}>
+            <div key={question.id} className="ui raised clearing segment">
+              <h3 className="ui header">
+                <a href="">{question.title}</a>
+              </h3>
+              <button
+                className="ui right floated small red button"
+                onClick={() => this.deleteQuestion(question.id)}
+              >
                 Delete
               </button>
-            </li>
+            </div>
           ))}
         </ul>
       </main>
