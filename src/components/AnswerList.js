@@ -8,9 +8,11 @@ export const AnswerList = (props) => {
       {props.answers.map((answer) => (
         <li key={answer.id}>
           <AnswerDetails
-            body={answer.body}
-            author={answer.author}
-            created_at={answer.created_at}
+            {...answer}
+            // body={answer.body}
+            // author={answer.author}
+            // created_at={answer.created_at}
+            onDeleteClick={props.onAnswerDeleteClick}
           />
         </li>
       ))}

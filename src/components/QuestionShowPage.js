@@ -21,6 +21,21 @@ export class QuestionShowPage extends Component {
   deleteQuestion() {
     this.setState({ question: null });
   }
+
+  deleteAnswer(id) {
+    this.setState({
+      question: {
+        ...this.state.question,
+        answers: this.state.question.answers.filter((a) => a.id !== id),
+      },
+    });
+    // what we are doing above is grabbing all other properties of
+    // question in state except for answers which we are updating them
+    // like below example:
+    // let question = { title: 'question title', answers: ['a1', 'a2', 'a3'] }
+    // question = { ...question, answers: ['a1', 'a2']}
+    // so question will have { title: 'question title', answers: ['a1', 'a2'] }
+  }
   render() {
     if (!this.state.question) {
       return (
@@ -45,7 +60,10 @@ export class QuestionShowPage extends Component {
           //   created_at={this.state.question.created_at}
         />
         <button onClick={() => this.deleteQuestion()}>Delete</button>
-        <AnswerList answers={this.state.question.answers} />
+        <AnswerList
+          answers={this.state.question.answers}
+          onAnswerDeleteClick={(id) => this.deleteAnswer(id)}
+        />
       </main>
     );
   }

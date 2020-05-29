@@ -13,6 +13,7 @@ export const AnswerDetails = (props) => {
         </small>
       </p>
       <p>Answered {props.created_at}</p>
+      <button onClick={() => props.onDeleteClick(props.id)}>Delete</button>
     </div>
   );
 };
