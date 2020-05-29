@@ -22,10 +22,10 @@ export class QuestionIndexPage extends Component {
 
   componentDidMount() {
     Question.all().then((questions) => {
-      this.setState({ questions: questions });
+      this.setState({ questions });
     });
   }
-  
+
   deleteQuestion(id) {
     // console.log("Question Id: ", id);
     // To change 'state', you must ALWAYS use 'this.setState(...)'

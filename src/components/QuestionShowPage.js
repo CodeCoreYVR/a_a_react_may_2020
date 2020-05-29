@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { QuestionDetails } from "./QuestionDetails";
 import { AnswerList } from "./AnswerList";
-import oneQuestionData from "../oneQuestionData";
+import { Question } from "../api/question";
 
 // QuestionShowPage component
 export class QuestionShowPage extends Component {
@@ -15,8 +15,15 @@ export class QuestionShowPage extends Component {
     // it is a property of 'this' and it is initialized
     // inside class's constructor method
     this.state = {
-      question: oneQuestionData,
+      question: null,
     };
+  }
+  componentDidMount() {
+    Question.one(20).then((question) => {
+      this.setState({
+        question,
+      });
+    });
   }
   deleteQuestion() {
     this.setState({ question: null });
