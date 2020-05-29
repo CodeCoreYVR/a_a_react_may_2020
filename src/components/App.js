@@ -1,8 +1,9 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import { QuestionShowPage } from "./QuestionShowPage";
 import { QuestionIndexPage } from "./QuestionIndexPage";
-import { Clock } from "./Clock";
+import { WelcomePage } from "./WelcomePage";
 
 // In react application, we create a component that acts as the
 // "root" or the entry point to all f our other components.
@@ -13,12 +14,13 @@ export class App extends React.Component {
   };
   render() {
     return (
-      <div className="ui container App">
-        {this.state.showTime && <Clock />}
-        <QuestionShowPage />
-        <hr />
-        <QuestionIndexPage />
-      </div>
+      <BrowserRouter>
+        <div className="ui container App">
+          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/questions" component={QuestionIndexPage} />
+          <Route path="/questions/:id" component={QuestionShowPage} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
