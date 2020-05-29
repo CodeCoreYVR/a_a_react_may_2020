@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { QuestionShowPage } from "./QuestionShowPage";
 import { QuestionIndexPage } from "./QuestionIndexPage";
 import { WelcomePage } from "./WelcomePage";
+import { NavBar } from "./NavBar";
 
 // In react application, we create a component that acts as the
 // "root" or the entry point to all f our other components.
@@ -15,6 +16,9 @@ export class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
+        <header>
+          <NavBar />
+        </header>
         <div className="ui container App">
           <Route exact path="/" component={WelcomePage} />
           <Route exact path="/questions" component={QuestionIndexPage} />

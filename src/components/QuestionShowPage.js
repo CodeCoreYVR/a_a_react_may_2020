@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { QuestionDetails } from "./QuestionDetails";
 import { AnswerList } from "./AnswerList";
 import { Question } from "../api/question";
+import { Spinner } from "./Spinner";
 
 // QuestionShowPage component
 export class QuestionShowPage extends Component {
@@ -16,12 +17,14 @@ export class QuestionShowPage extends Component {
     // inside class's constructor method
     this.state = {
       question: null,
+      isLoading: true,
     };
   }
   componentDidMount() {
-    Question.one(20).then((question) => {
+    Question.one(this.props.match.params.id).then((question) => {
       this.setState({
         question,
+        isLoading: false,
       });
     });
   }
@@ -44,14 +47,9 @@ export class QuestionShowPage extends Component {
     // so question will have { title: 'question title', answers: ['a1', 'a2'] }
   }
   render() {
-    if (!this.state.question) {
-      return (
-        <main className="Page">
-          <h2 style={{ color: "white", backgroundColor: "red" }}>
-            Question Doesn't Exist
-          </h2>
-        </main>
-      );
+    // debugger;
+    if (this.state.isLoading) {
+      return <Spinner message="Question doesn't exist" />;
     }
     return (
       <main className="QuestionShowPage">

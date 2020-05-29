@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { NewQuestionForm } from "./NewQuestionForm";
 import { Question } from "../api/question";
+import { Spinner } from "./Spinner";
 
 export class QuestionIndexPage extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ export class QuestionIndexPage extends Component {
       // a new array that is stored in the state
       // questions: questions.map(question => question)
       questions: [],
+      isLoading: true,
     };
     // this.state is an object
     // it has a single property, questions
@@ -22,7 +25,7 @@ export class QuestionIndexPage extends Component {
 
   componentDidMount() {
     Question.all().then((questions) => {
-      this.setState({ questions });
+      this.setState({ questions, isLoading: false });
     });
   }
 
@@ -66,6 +69,9 @@ export class QuestionIndexPage extends Component {
     });
   }
   render() {
+    if (this.state.isLoading) {
+      return <Spinner message="Loading questions from DB" />;
+    }
     return (
       <main className="QuestionIndexPage Page">
         <NewQuestionForm onSubmit={this.createQuestion} />
@@ -74,7 +80,7 @@ export class QuestionIndexPage extends Component {
           {this.state.questions.map((question) => (
             <div key={question.id} className="ui raised clearing segment">
               <h3 className="ui header">
-                <a href="">{question.title}</a>
+                <Link to={`/questions/${question.id}`}>{question.title}</Link>
               </h3>
               <button
                 className="ui right floated small red button"
