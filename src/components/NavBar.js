@@ -11,6 +11,9 @@ export const NavBar = (props) => {
       <NavLink exact to="/questions" className="item">
         Questions
       </NavLink>
+      <NavLink exact to="/questions/new" className="item">
+        New Question
+      </NavLink>
       <div className="right menu">
         <Clock />
       </div>
